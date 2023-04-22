@@ -253,7 +253,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
     @yield('header')
-    
+
 
 </head>
 
@@ -261,7 +261,7 @@
     <script src="finisher-header.es5.min.js" type="text/javascript"></script>
     {{-- header --}}
     <div class="header finisher-header" style="width: 100%; height: 100px;">
-        
+
         <nav class="main-navigation">
             <div class="navbar-header" style="position:absolute;float: right;">
                 <ul class="nav-list" style="float: right;z-index:2">
@@ -274,6 +274,10 @@
                     <li class="nav-list-item">
                         <a href="{{ route('report') }}" class="nav-link">មើលទិន្នន័យ</a>
                     </li>
+                    <li class="nav-list-item">
+                        <a href="{{ route('search') }}" class="nav-link">ស្វែងរក</a>
+                    </li>
+
                 </ul>
             </div>
         </nav>
@@ -299,10 +303,10 @@
             //set dims to window
             canvas.height = h;
             canvas.width = w;
-            // Generate snowflakes 
+            // Generate snowflakes
             var mf = 100; // max flakes
             var flakes = [];
-            // loop through the empty flakes 
+            // loop through the empty flakes
             for (var i = 0; i < mf; i++) {
 
                 flakes.push({
@@ -312,7 +316,7 @@
                     d: Math.random() + 1 // density of flakes
                 })
             }
-            //draw flakes 
+            //draw flakes
             function drawFlakes() {
                 ctx.clearRect(0, 0, w, h);
                 ctx.fillStyle = "white";

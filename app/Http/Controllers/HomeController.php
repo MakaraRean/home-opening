@@ -85,7 +85,23 @@ class HomeController extends Controller
         return view('report',['customers' => $customers,'amountRiel' => $amountRiel,'amountUsd' => $amountUsd,'count' => $count]);
     }
 
-    public function test(){
-        return view('test');
+
+    public function search(){
+        if (request()->method() == 'GET')
+            return view('search');
+        $search = request()->search;
+        $customers = DB::table('customers')->where('khName','like','%'.$search.'%')->orWhere('enName','like','%'.$search.'%')->get();
+        $addresses = Address::all();
+        $count = $customers->count();
+        return $customers;
+    }
+
+    public function address($id){
+        $data = DB::table('addresses')->where('id','=',$id)->first();
+        return $data;
+    }
+
+    public function login(){
+        return view('login');
     }
 }
